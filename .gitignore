@@ -5,6 +5,9 @@ node_modules
 /src/tags
 /env
 
+# python files
+__pycache__/
+
 # local env files
 .env.local
 .env.*.local

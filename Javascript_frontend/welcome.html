@@ -27,7 +27,6 @@
         <p><a id="logoutBtn" href="#">Log out</a></p>
       </div>
     </div>
-
     <script type="text/javascript">
       // Fetch the username and verification code from localStorage
       const username = localStorage.getItem("username");
@@ -42,7 +41,7 @@
       // Set the link to the user page with the user_uuid
       document
         .getElementById("userPageLink")
-        .setAttribute("href", `user_page.html?user_uuid=${user_uuid}`);
+        .setAttribute("href", `verify_code.html?user_uuid=${user_uuid}`);
 
       // Copy verification code to clipboard
       function copyVerificationCode() {
@@ -63,25 +62,6 @@
           localStorage.clear(); // Clear localStorage on logout
           window.location.href = "login.html"; // Redirect to login page
         });
-      // Handle user verification
-      const verifyForm = document.getElementById("verifyForm");
-      if (verifyForm) {
-        verifyForm.addEventListener("submit", (e) => {
-          e.preventDefault();
-
-          const enteredCode =
-            document.getElementById("verification_code").value;
-          const storedCode = localStorage.getItem("verification_code");
-
-          if (enteredCode === storedCode) {
-            alert("Verification successful!");
-            window.location.href = "user_page.html";
-          } else {
-            document.getElementById("message").innerText =
-              "Invalid verification code.";
-          }
-        });
-      }
     </script>
   </body>
 </html>

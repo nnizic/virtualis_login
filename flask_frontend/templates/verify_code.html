@@ -1,23 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verify Code</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-<body>
-
-<div class="container">
-    <div class="login-form">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-form">
         <h2>Enter your verification code</h2>
         <form method="POST">
-            <input type="text" name="verification_code" placeholder="Enter your code" required>
-            <button type="submit">Submit</button>
+          <input
+            type="text"
+            name="verification_code"
+            placeholder="Enter your code"
+            required
+          />
+          <button type="submit">Submit</button>
         </form>
+      </div>
     </div>
-</div>
-
-</body>
+  </body>
 </html>
-
