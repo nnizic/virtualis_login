@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-form">
+        <h1>Your User Page</h1>
+        <form id="verifyForm">
+          <label for="verification_code">Enter verification code:</label><br />
+          <input
+            type="text"
+            id="verification_code"
+            name="verification_code"
+            required
+          /><br /><br />
+          <button type="submit">Verify</button>
+        </form>
+        <div id="message"></div>
+      </div>
+    </div>
+    <script src="scripts/auth.js"></script>
+  </body>
+</html>

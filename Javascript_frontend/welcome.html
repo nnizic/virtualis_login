@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-form">
+        <h2>Welcome, <span id="username"></span>!</h2>
+        <p>
+          Your verification code:
+          <strong id="verificationCode"></strong>
+        </p>
+
+        <!-- Button for copying the code -->
+        <button onclick="copyVerificationCode()">Copy Code</button>
+
+        <!-- Link to user page -->
+        <p>
+          <a id="userPageLink" href="#">Proceed to Verification</a>
+        </p>
+
+        <!-- Logout link -->
+        <p><a id="logoutBtn" href="#">Log out</a></p>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      // Fetch the username and verification code from localStorage
+      const username = localStorage.getItem("username");
+      const verificationCode = localStorage.getItem("verification_code");
+      const user_uuid = localStorage.getItem("user_uuid");
+      console.log(username);
+
+      // Set the username and verification code in the DOM
+      document.getElementById("username").innerText = username;
+      document.getElementById("verificationCode").innerText = verificationCode;
+
+      // Set the link to the user page with the user_uuid
+      document
+        .getElementById("userPageLink")
+        .setAttribute("href", `user_page.html?user_uuid=${user_uuid}`);
+
+      // Copy verification code to clipboard
+      function copyVerificationCode() {
+        navigator.clipboard.writeText(verificationCode).then(
+          function () {
+            alert("Verification code copied to clipboard!");
+          },
+          function () {
+            alert("Failed to copy the verification code.");
+          },
+        );
+      }
+
+      // Handle logout
+      document
+        .getElementById("logoutBtn")
+        .addEventListener("click", function () {
+          localStorage.clear(); // Clear localStorage on logout
+          window.location.href = "login.html"; // Redirect to login page
+        });
+      // Handle user verification
+      const verifyForm = document.getElementById("verifyForm");
+      if (verifyForm) {
+        verifyForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const enteredCode =
+            document.getElementById("verification_code").value;
+          const storedCode = localStorage.getItem("verification_code");
+
+          if (enteredCode === storedCode) {
+            alert("Verification successful!");
+            window.location.href = "user_page.html";
+          } else {
+            document.getElementById("message").innerText =
+              "Invalid verification code.";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
