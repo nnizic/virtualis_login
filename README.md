@@ -4,6 +4,7 @@
 FastAPI backend
 Flask or Javascript frontend
 
+```
 ## Project setup
 ```
 pip -r requirements.txt
