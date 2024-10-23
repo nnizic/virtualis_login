@@ -7,7 +7,7 @@ Flask or Javascript frontend
 ```
 ## Project setup
 ```
-pip -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Compiles and hot-reloads for development
